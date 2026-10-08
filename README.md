@@ -2,7 +2,8 @@
 
 Windows tool for servicing Android phones over USB: flashing firmware, removing FRP locks, repairing IMEI, and reading or writing device partitions. Written in C# with WinForms on .NET Framework 4.7.2. Supports MediaTek, Qualcomm (EDL), Samsung (Odin), Spreadtrum/Unisoc, Huawei Kirin and Motorola devices.
 
-![Build & Package](https://github.com/tfastdigital/Tunlocker-Tool-Pro/actions/workflows/build-and-package.yml/badge.svg)
+[![CI Build](https://github.com/moax342/Tunlocker-Tool-Pro/actions/workflows/ci.yml/badge.svg)](https://github.com/moax342/Tunlocker-Tool-Pro/actions/workflows/ci.yml)
+[![Build & Package](https://github.com/moax342/Tunlocker-Tool-Pro/actions/workflows/build-and-package.yml/badge.svg)](https://github.com/moax342/Tunlocker-Tool-Pro/actions/workflows/build-and-package.yml)
 
 Legal note: only use this on devices you own or are authorized to service. Bypassing FRP on stolen phones, or unlocking devices without permission, is illegal in most countries. Tunlocker Tool Pro is copyright Tfast Digital Agency (https://tfastdigital.com/).
 
