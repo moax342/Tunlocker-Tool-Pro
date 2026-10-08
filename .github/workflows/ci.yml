@@ -1,0 +1,61 @@
+name: CI Build
+
+# Build-verification workflow. Runs on every branch and pull request so that
+# compile errors and warnings surface early. It does NOT package or publish
+# anything — releases are handled separately by build-and-package.yml.
+
+on:
+  push:
+    # Any branch. Tag pushes intentionally do NOT trigger CI (a `branches`
+    # filter with no `tags` filter excludes tags) — releases on tags are
+    # handled by build-and-package.yml.
+    branches: [ '**' ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Cancel superseded runs on the same ref to save CI minutes.
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build (${{ matrix.configuration }})
+    runs-on: windows-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [ Debug, Release ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore "Tunlocker Tool.sln"
+
+      - name: Build (${{ matrix.configuration }})
+        shell: pwsh
+        run: |
+          dotnet build "Tunlocker Tool.sln" `
+            -c ${{ matrix.configuration }} `
+            --no-restore `
+            -clp:Summary `
+            -bl:"build-${{ matrix.configuration }}.binlog"
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log-${{ matrix.configuration }}
+          path: build-${{ matrix.configuration }}.binlog
+          if-no-files-found: ignore
