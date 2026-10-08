@@ -73,6 +73,9 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
+          # Attach the runnable Windows build (zip of exe + dlls + config) so
+          # the Releases page offers a downloadable app, plus the NuGet package.
           files: |
+            TunlockerToolPro-${{ github.ref_name }}-win-x64.zip
             packages/*.nupkg
           generate_release_notes: true
