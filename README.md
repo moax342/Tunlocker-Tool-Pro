@@ -9,9 +9,9 @@ Legal note: only use this on devices you own or are authorized to service. Bypas
 
 ## Download
 
-Latest build: [TunlockerToolPro-v2.0.0-win-x64.zip](https://github.com/tfastdigital/Tunlocker-Tool-Pro/releases/download/v2.0.0/TunlockerToolPro-v2.0.0-win-x64.zip)
+Latest build: [TunlockerToolPro-v2.0.1-win-x64.zip](https://github.com/moax342/Tunlocker-Tool-Pro/releases/download/v2.0.1/TunlockerToolPro-v2.0.1-win-x64.zip)
 
-All versions: https://github.com/tfastdigital/Tunlocker-Tool-Pro/releases
+All versions: https://github.com/moax342/Tunlocker-Tool-Pro/releases
 
 Extract the zip anywhere, run `Tunlocker Tool.exe` and log in. No installation needed. Windows Defender sometimes flags phone tools as PUP; if it blocks the file, add the folder to Defender exclusions. The exe is not code-signed.
 
@@ -51,7 +51,7 @@ The login protocol is documented in [docs/BACKEND_GUIDE.md](docs/BACKEND_GUIDE.m
 Needs the .NET SDK 8.0 or newer on Windows (tested with 10.0.301). The project targets net472 but builds fine with the SDK.
 
 ```bash
-git clone https://github.com/tfastdigital/Tunlocker-Tool-Pro.git
+git clone https://github.com/moax342/Tunlocker-Tool-Pro.git
 cd Tunlocker-Tool-Pro
 dotnet build "Tunlocker Tool.sln" -c Debug
 ```
@@ -87,7 +87,7 @@ Tunlocker-Tool-Pro/
 dotnet pack "Tunlocker Tool.csproj" -c Release -o packages
 ```
 
-creates `packages/TunlockerToolPro.2.0.0.nupkg`. Pushing a tag like `v2.0.0` makes GitHub Actions push the nupkg to GitHub Packages and create a release (workflow in `.github/workflows/build-and-package.yml`). Release zips are attached manually (see Download above).
+creates `packages/TunlockerToolPro.2.0.1.nupkg`. Pushing a tag like `v2.0.1` makes GitHub Actions push the nupkg to GitHub Packages and publish a release with the win-x64 zip attached automatically (workflow in `.github/workflows/build-and-package.yml`).
 
 The nupkg and zip include the third-party DLLs from `Res/`. Check their licenses before redistributing.
 
