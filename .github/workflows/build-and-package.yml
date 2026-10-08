@@ -4,9 +4,13 @@ on:
   push:
     branches: [ main, master ]
     tags: [ 'v*' ]
-  pull_request:
-    branches: [ main, master ]
   workflow_dispatch:
+
+# Pull requests are intentionally NOT built here: PR build-verification is
+# handled by ci.yml. This workflow is the release pipeline (stage + zip +
+# NuGet pack/push + GitHub Release), and its packaging steps rely on
+# github.ref_name, which on a pull_request event is "<n>/merge" — the "/"
+# breaks the ZIP filename. Keeping it to push/tags avoids that entirely.
 
 permissions:
   contents: write
