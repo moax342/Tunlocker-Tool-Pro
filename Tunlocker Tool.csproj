@@ -10,15 +10,15 @@
   <!-- NuGet / GitHub Packages metadata -->
   <PropertyGroup>
     <PackageId>TunlockerToolPro</PackageId>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
     <Authors>Tfast Digital Agency</Authors>
     <Description>Educational multi-brand Android service tool for Windows: MediaTek, Qualcomm EDL, Samsung Odin, Spreadtrum, Huawei Kirin, ADB/Fastboot automation, FRP removal and firmware flashing. WinForms / .NET Framework 4.7.2.</Description>
     <PackageTags>android;flasher;mtk;mediatek;qualcomm;edl;samsung;odin;spreadtrum;huawei;kirin;frp;imei;adb;fastboot;winforms;dotnet;educational</PackageTags>
-    <RepositoryUrl>https://github.com/tfastdigital/Tunlocker-Tool-Pro.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/moax342/Tunlocker-Tool-Pro.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageProjectUrl>https://github.com/tfastdigital/Tunlocker-Tool-Pro</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/moax342/Tunlocker-Tool-Pro</PackageProjectUrl>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>10.0</LangVersion>
